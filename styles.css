@@ -1,1 +1,233 @@
 
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+
+:root {
+  --bg-0: #030b1d;
+  --bg-1: #0b2a5f;
+  --bg-2: #1557b5;
+  --surface: rgba(8, 23, 53, 0.66);
+  --surface-strong: rgba(9, 26, 60, 0.9);
+  --border: rgba(124, 183, 255, 0.24);
+  --text: #eaf3ff;
+  --muted: #9eb7da;
+  --accent: #67c2ff;
+  --accent-2: #89f0ff;
+  --shadow: 0 20px 45px rgba(1, 8, 25, 0.45);
+  --radius: 18px;
+  --mx: 50%;
+  --my: 20%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px circle at 20% -20%, rgba(113, 174, 255, 0.25), transparent 52%),
+    linear-gradient(180deg, #114da0 0%, #0b3678 48%, #071c46 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    560px circle at var(--mx) var(--my),
+    rgba(99, 186, 255, 0.17),
+    transparent 48%
+  );
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  z-index: 9999;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 18px rgba(117, 210, 255, 0.9);
+}
+
+.wrap {
+  width: min(1100px, 92vw);
+  margin-inline: auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+  margin-top: 14px;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(5, 18, 44, 0.68);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.topbar nav a {
+  color: #c6dcff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.topbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.topbar nav a:hover,
+.topbar nav a.active {
+  color: #ffffff;
+}
+
+.topbar nav a:hover::after,
+.topbar nav a.active::after {
+  transform: scaleX(1);
+}
+
+.hero {
+  padding: 5.6rem 0 3.2rem;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+  color: #cde6ff;
+  font-size: 0.82rem;
+  background: rgba(8, 29, 67, 0.7);
+}
+
+.kicker::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px rgba(103, 194, 255, 0.9);
+}
+
+h1 {
+  margin: 0.9rem 0 0.8rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 5vw, 4.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(110deg, #dff5ff 15%, #9fe0ff 45%, #70bbff 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.cta-row {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #64c2ff, #6ec4ff, #8ff0ff);
+  color: #002043;
+  box-shadow: 0 10px 24px rgba(111, 201, 255, 0.35);
+}
+
+.btn-ghost {
+  background: rgba(10, 31, 69, 0.8);
+  border-color: var(--border);
+  color: #d9ecff;
+}
+
+.magnetic {
+  will-change
