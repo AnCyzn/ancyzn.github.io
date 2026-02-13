@@ -9,9 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #04132f;
-      --bg-layer: #08224d;
-      --bg-card: #0d2f63;
+      --bg-main: #0e4b99;
+      --bg-layer: #0b3f82;
+      --bg-card: #103f7e;
       --line: #25548f;
       --line-soft: rgba(131, 189, 255, 0.3);
       --text-main: #e7f1ff;
@@ -31,12 +31,42 @@
       min-height: 100vh;
       font-family: "Barlow", sans-serif;
       color: var(--text-main);
-      background:
-        radial-gradient(circle at 10% 5%, rgba(128, 196, 255, 0.22), transparent 32%),
-        radial-gradient(circle at 80% 20%, rgba(107, 162, 255, 0.18), transparent 36%),
-        linear-gradient(155deg, var(--bg-main), #031127 58%, #061a3d);
+      background-color: var(--bg-main);
+      background-image: linear-gradient(180deg, #1660ba 0%, #0f4c9d 58%, #0c3f84 100%);
       overflow-x: hidden;
-      padding: 2.5rem 1.25rem;
+      padding: 1.4rem 1.25rem 1rem;
+    }
+
+    .top-bar {
+      width: min(980px, 100%);
+      margin: 0 auto 1rem;
+      background: rgba(8, 43, 90, 0.82);
+      border: 1px solid var(--line-soft);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      padding: 0.68rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      animation: page-enter 650ms ease-out;
+    }
+
+    .brand {
+      font-family: "Sora", sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #eff7ff;
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      color: #cbe3ff;
+      font-size: 0.9rem;
     }
 
     .page {
@@ -53,7 +83,7 @@
       border-radius: 18px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(8px);
-      padding: 1.2rem;
+      padding: 0.95rem;
       animation: rise 650ms ease both;
     }
 
@@ -96,7 +126,7 @@
 
     .grid {
       display: grid;
-      gap: 1rem;
+      gap: 0.7rem;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
@@ -106,11 +136,11 @@
       color: var(--text-main);
       border-radius: 12px;
       width: 100%;
-      min-height: 130px;
+      min-height: 92px;
       resize: vertical;
-      font-size: 0.98rem;
-      line-height: 1.5;
-      padding: 0.8rem 0.85rem;
+      font-size: 0.94rem;
+      line-height: 1.4;
+      padding: 0.62rem 0.68rem;
       outline: none;
       transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
       font-family: "Barlow", sans-serif;
@@ -128,9 +158,9 @@
 
     .title-box {
       min-height: auto;
-      height: 48px;
+      height: 42px;
       resize: none;
-      font-size: 1rem;
+      font-size: 0.96rem;
       font-weight: 500;
       display: block;
     }
@@ -140,6 +170,28 @@
       color: #90abd2;
       font-size: 0.86rem;
       padding-top: 0.35rem;
+    }
+
+    .site-footer {
+      width: min(980px, 100%);
+      margin: 1rem auto 0;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      background: rgba(8, 38, 79, 0.86);
+      border: 1px solid var(--line-soft);
+      color: #c4ddff;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    .site-footer strong {
+      color: #edf6ff;
+      font-weight: 600;
     }
 
     @keyframes page-enter {
@@ -154,20 +206,43 @@
 
     @media (max-width: 640px) {
       body {
-        padding: 1.2rem 0.8rem 1.4rem;
+        padding: 0.9rem 0.8rem 0.8rem;
+      }
+
+      .top-bar {
+        padding: 0.62rem 0.78rem;
+      }
+
+      .top-links {
+        font-size: 0.82rem;
+        gap: 0.52rem;
       }
 
       .panel {
-        padding: 1rem;
+        padding: 0.86rem;
       }
 
       .editor {
-        min-height: 115px;
+        min-height: 84px;
+      }
+
+      .site-footer {
+        padding: 0.72rem 0.78rem;
+        font-size: 0.84rem;
       }
     }
   </style>
 </head>
 <body>
+  <header class="top-bar">
+    <div class="brand">Blue Draft Site</div>
+    <nav class="top-links">
+      <span>Home</span>
+      <span>Sections</span>
+      <span>Contact</span>
+    </nav>
+  </header>
+
   <main class="page">
     <section class="panel">
       <span class="label">Dark Blue Template</span>
@@ -196,5 +271,10 @@
       <p class="footer-note">Designed with a dark blue visual style and responsive layout.</p>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <span><strong>Contact:</strong> hello@example.com | +1 (555) 010-2211</span>
+    <span><strong>Location:</strong> 125 Harbor Street, Seattle, WA</span>
+  </footer>
 </body>
 </html>
