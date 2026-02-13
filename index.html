@@ -1,11 +1,200 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>anczyn</title>
-  </head>
-  <body>
-    <h1>alive</h1>
-    <p>ts LOWKEY pmo.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midnight Blue Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #04132f;
+      --bg-layer: #08224d;
+      --bg-card: #0d2f63;
+      --line: #25548f;
+      --line-soft: rgba(131, 189, 255, 0.3);
+      --text-main: #e7f1ff;
+      --text-muted: #a8c1e6;
+      --accent: #65bbff;
+      --accent-strong: #89d0ff;
+      --shadow: 0 16px 40px rgba(2, 9, 22, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Barlow", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(128, 196, 255, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 20%, rgba(107, 162, 255, 0.18), transparent 36%),
+        linear-gradient(155deg, var(--bg-main), #031127 58%, #061a3d);
+      overflow-x: hidden;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .page {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 1.2rem;
+      animation: page-enter 700ms ease-out;
+    }
+
+    .panel {
+      background: linear-gradient(170deg, rgba(18, 56, 109, 0.7), rgba(9, 36, 76, 0.78));
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem;
+      animation: rise 650ms ease both;
+    }
+
+    .panel:nth-child(2) { animation-delay: 120ms; }
+    .panel:nth-child(3) { animation-delay: 220ms; }
+    .panel:nth-child(4) { animation-delay: 320ms; }
+
+    h1, h2 {
+      font-family: "Sora", sans-serif;
+      letter-spacing: 0.02em;
+      color: #f2f8ff;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3.1vw, 2.6rem);
+      margin-bottom: 0.45rem;
+    }
+
+    h2 {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      margin-bottom: 0.55rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 62ch;
+      margin-bottom: 0.8rem;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--accent-strong);
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .editor {
+      background: linear-gradient(180deg, rgba(9, 35, 74, 0.93), rgba(6, 27, 58, 0.96));
+      border: 1px solid var(--line);
+      color: var(--text-main);
+      border-radius: 12px;
+      width: 100%;
+      min-height: 130px;
+      resize: vertical;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      padding: 0.8rem 0.85rem;
+      outline: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      font-family: "Barlow", sans-serif;
+    }
+
+    .editor::placeholder {
+      color: #8ca9cf;
+    }
+
+    .editor:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(101, 187, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .title-box {
+      min-height: auto;
+      height: 48px;
+      resize: none;
+      font-size: 1rem;
+      font-weight: 500;
+      display: block;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #90abd2;
+      font-size: 0.86rem;
+      padding-top: 0.35rem;
+    }
+
+    @keyframes page-enter {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem 1.4rem;
+      }
+
+      .panel {
+        padding: 1rem;
+      }
+
+      .editor {
+        min-height: 115px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="panel">
+      <span class="label">Dark Blue Template</span>
+      <h1>Custom Website Draft</h1>
+      <p>Edit each text box below with your own content. Every field starts empty and uses simple Lorem Ipsum placeholders to guide structure.</p>
+      <textarea class="editor title-box" placeholder="Lorem ipsum dolor sit amet."></textarea>
+    </section>
+
+    <section class="panel">
+      <h2>Introduction</h2>
+      <textarea class="editor" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></textarea>
+    </section>
+
+    <section class="panel">
+      <h2>Main Sections</h2>
+      <div class="grid">
+        <textarea class="editor" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."></textarea>
+        <textarea class="editor" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."></textarea>
+        <textarea class="editor" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."></textarea>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Closing Notes</h2>
+      <textarea class="editor" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></textarea>
+      <p class="footer-note">Designed with a dark blue visual style and responsive layout.</p>
+    </section>
+  </main>
+</body>
 </html>
