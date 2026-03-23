@@ -230,4 +230,5 @@ h1 {
 }
 
 .magnetic {
-  will-change
+  will-change: transform;
+}
