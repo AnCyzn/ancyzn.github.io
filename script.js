@@ -8,10 +8,16 @@
   const $ = (selector, parent = document) => parent.querySelector(selector);
   const $$ = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
 
+  // When the editor popup is open, pause background animations so the UI
+  // (including the close button) stays responsive during typing.
+  let modalOpen = false;
+  let prevBodyOverflow = "";
+
   if (!reducedMotion) {
     window.addEventListener(
       "pointermove",
       (e) => {
+        if (modalOpen) return;
         root.style.setProperty("--mx", `${(e.clientX / window.innerWidth) * 100}%`);
         root.style.setProperty("--my", `${(e.clientY / window.innerHeight) * 100}%`);
       },
@@ -126,6 +132,7 @@
   if (!reducedMotion) {
     $$(".magnetic").forEach((el) => {
       el.addEventListener("mousemove", (e) => {
+        if (modalOpen) return;
         const rect = el.getBoundingClientRect();
         const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
         const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
@@ -146,6 +153,7 @@
       };
 
       card.addEventListener("mousemove", (e) => {
+        if (modalOpen) return;
         const rect = card.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width;
         const py = (e.clientY - rect.top) / rect.height;
@@ -170,6 +178,10 @@
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
+        if (modalOpen) {
+          ticking = false;
+          return;
+        }
         const y = window.scrollY;
         parallaxNodes.forEach((node) => {
           const speed = Number(node.dataset.parallax || 0.14);
@@ -181,6 +193,9 @@
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
   }
+
+  let starfieldRafId = null;
+  let starfieldResume = null;
 
   const canvas = $("#starfield");
   if (canvas && !reducedMotion) {
@@ -214,6 +229,10 @@
     };
 
     const draw = () => {
+      if (modalOpen) {
+        starfieldRafId = null;
+        return;
+      }
       ctx.clearRect(0, 0, w, h);
       for (const s of stars) {
         s.y -= s.speed;
@@ -228,10 +247,11 @@
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
       }
-      requestAnimationFrame(draw);
+      starfieldRafId = requestAnimationFrame(draw);
     };
 
     resize();
+    starfieldResume = draw;
     draw();
     window.addEventListener("resize", resize);
   }
@@ -449,6 +469,16 @@
     const modal = $("#edit-modal");
     const backdrop = $("#modal-backdrop");
     if (!modal || !backdrop) return;
+
+    modalOpen = true;
+    prevBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    // Pause background loops while the user is typing in the popup.
+    if (typedTimeoutId) window.clearTimeout(typedTimeoutId);
+    typedTimeoutId = null;
+    if (starfieldRafId) window.cancelAnimationFrame(starfieldRafId);
+    starfieldRafId = null;
+
     modal.classList.add("show");
     backdrop.classList.add("show");
     modal.setAttribute("aria-hidden", "false");
@@ -474,10 +504,16 @@
     const modal = $("#edit-modal");
     const backdrop = $("#modal-backdrop");
     if (!modal || !backdrop) return;
+
+    modalOpen = false;
     modal.classList.remove("show");
     backdrop.classList.remove("show");
     modal.setAttribute("aria-hidden", "true");
     backdrop.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = prevBodyOverflow;
+    if (typed) startTyped();
+    if (starfieldResume) starfieldResume();
   };
 
   const serializeContentFromEditor = () => {

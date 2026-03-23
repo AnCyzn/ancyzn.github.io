@@ -528,10 +528,16 @@ textarea:focus {
   place-items: center;
   padding: 1rem;
   pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 160ms ease, visibility 0s linear 160ms;
 }
 
 .modal.show {
   pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 160ms ease, visibility 0s linear 0ms;
 }
 
 .modal-panel {

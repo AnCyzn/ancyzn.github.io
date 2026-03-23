@@ -10,12 +10,9 @@
       content="Personal site for a tech engineer: projects, skills, and contact."
     />
 
-    <link rel="stylesheet" href="site.css" />
+    <link rel="stylesheet" href="minimal.css" />
   </head>
   <body>
-    <div id="scroll-progress" aria-hidden="true"></div>
-    <canvas id="starfield" aria-hidden="true"></canvas>
-
     <div class="wrap">
       <a class="sr-only" href="#home">Skip to content</a>
       <header class="topbar">
@@ -28,7 +25,7 @@
           <a data-nav href="#contact">Contact</a>
         </nav>
         <div class="right-actions">
-          <button class="pill-btn magnetic" id="edit-button" type="button">Customize</button>
+          <button class="pill-btn" id="edit-button" type="button">Customize</button>
         </div>
       </header>
     </div>
@@ -49,12 +46,12 @@
           <span data-out="hero.leadAfterTyped">for products that ship.</span>
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary magnetic" href="#projects">Explore projects</a>
-          <a class="btn btn-ghost magnetic" href="#contact">Contact me</a>
+          <a class="btn btn-primary" href="#projects">Explore projects</a>
+          <a class="btn btn-ghost" href="#contact">Contact me</a>
         </div>
 
         <div style="margin-top: 1.4rem" class="grid-3">
-          <div class="card reveal" data-tilt>
+          <div class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <div class="tag" style="margin-bottom: 0.9rem; width: fit-content;">Now</div>
@@ -63,7 +60,7 @@
               </p>
             </div>
           </div>
-          <div class="card reveal" data-tilt>
+          <div class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <div class="tag" style="margin-bottom: 0.9rem; width: fit-content;">Focus</div>
@@ -72,7 +69,7 @@
               </p>
             </div>
           </div>
-          <div class="card reveal" data-tilt>
+          <div class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <div class="tag" style="margin-bottom: 0.9rem; width: fit-content;">Open to</div>
@@ -93,7 +90,7 @@
         </div>
 
         <div class="grid-3">
-          <article class="card project-card reveal" data-tilt>
+          <article class="card project-card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 data-out="projects.0.title">Realtime Ops Console</h3>
@@ -118,7 +115,7 @@
             </div>
           </article>
 
-          <article class="card project-card reveal" data-tilt>
+          <article class="card project-card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 data-out="projects.1.title">Offline-First Notes</h3>
@@ -143,7 +140,7 @@
             </div>
           </article>
 
-          <article class="card project-card reveal" data-tilt>
+          <article class="card project-card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 data-out="projects.2.title">Tech Blog Starter</h3>
@@ -177,7 +174,7 @@
         </div>
 
         <div class="grid-2">
-          <article class="card reveal" data-tilt>
+          <article class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 style="margin: 0 0 0.6rem; font-family: 'Space Grotesk', sans-serif;">Bio</h3>
@@ -189,7 +186,7 @@
             </div>
           </article>
 
-          <article class="card reveal" data-tilt>
+          <article class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 style="margin: 0 0 0.6rem; font-family: 'Space Grotesk', sans-serif;">Working style</h3>
@@ -205,7 +202,7 @@
           <p class="section-subtitle">A tech-oriented tag cloud (editable in the modal).</p>
         </div>
 
-        <div class="card reveal" data-tilt>
+        <div class="card reveal">
           <div class="sheen" aria-hidden="true"></div>
           <div class="pad">
             <div class="skills-row" id="skills-tags" data-out="skills.tags">
@@ -225,7 +222,7 @@
         </div>
 
         <div class="grid-2">
-          <article class="card reveal" data-tilt>
+          <article class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 style="margin: 0 0 0.75rem; font-family: 'Space Grotesk', sans-serif;">Get in touch</h3>
@@ -233,10 +230,10 @@
                 Prefer email: <strong data-out="contact.email">hello@example.com</strong>
               </p>
               <div style="display: flex; gap: 0.7rem; flex-wrap: wrap;">
-                <a class="btn btn-ghost magnetic" id="email-link" href="mailto:hello@example.com" data-out="contact.email" data-out-attr="href">
+                <a class="btn btn-ghost" id="email-link" href="mailto:hello@example.com" data-out="contact.email" data-out-attr="href">
                   Email
                 </a>
-                <a class="btn btn-ghost magnetic" id="github-link" href="#" target="_blank" rel="noreferrer" data-out="contact.github" data-out-attr="href">
+                <a class="btn btn-ghost" id="github-link" href="#" target="_blank" rel="noreferrer" data-out="contact.github" data-out-attr="href">
                   GitHub
                 </a>
               </div>
@@ -250,7 +247,7 @@
             </div>
           </article>
 
-          <article class="card reveal" data-tilt>
+          <article class="card reveal">
             <div class="sheen" aria-hidden="true"></div>
             <div class="pad">
               <h3 style="margin: 0 0 0.75rem; font-family: 'Space Grotesk', sans-serif;">Quick message</h3>
@@ -270,7 +267,7 @@
                   </div>
                 </div>
                 <div style="margin-top: 1rem; display: flex; gap: 0.7rem; flex-wrap: wrap;">
-                  <button class="btn btn-primary magnetic" type="submit">Compose email</button>
+                  <button class="btn btn-primary" type="submit">Compose email</button>
                   <button class="btn btn-ghost" type="button" id="copy-email">Copy email</button>
                 </div>
                 <p class="editor-help" id="contact-status" style="margin-top: 0.85rem;"></p>
@@ -424,7 +421,7 @@ Measure, then optimize</textarea>
         </div>
         <div class="modal-actions">
           <div style="display: flex; gap: 0.7rem; flex-wrap: wrap;">
-            <button class="btn-small primary magnetic" id="save-edit" type="button">Save</button>
+            <button class="btn-small primary" id="save-edit" type="button">Save</button>
             <button class="btn-small" id="reset-edit" type="button">Reset defaults</button>
           </div>
           <button class="btn-small" id="export-json" type="button">Export JSON</button>
