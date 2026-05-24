@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Andy Chen — Student & Engineer</title>
+    <meta
+      name="description"
+      content="Andy Chen — student, builder, aspiring software engineer. Selected projects, skills, and what I'm working toward."
+    />
+    <link rel="canonical" href="https://andychen.tech/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCJWEEK983"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GCJWEEK983');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="minimal.css" />
+  </head>
+  <body>
+    <!-- Atmospheric layers -->
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <a class="sr-only" href="#home">Skip to content</a>
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <a href="#home"  aria-label="Home"></a>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="#home" class="active">Index</a>
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#goals">Goals</a>
+        <a href="#skills">Stack</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Contact me!</span>
+      </div>
+    </header>
+
+    <!-- Side rail -->
+    <aside class="rail" aria-label="Section navigation">
+      <a class="rail-dot active" href="#home" data-label="Home"></a>
+      <a class="rail-dot" href="#about" data-label="About"></a>
+      <a class="rail-dot" href="#projects" data-label="Work"></a>
+      <a class="rail-dot" href="#goals" data-label="Goals"></a>
+      <a class="rail-dot" href="#skills" data-label="Stack"></a>
+      <a class="rail-dot" href="#contact" data-label="Contact"></a>
+    </aside>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-meta">
+          <span>Andy Chen</span>
+          <span class="meta-line"></span>
+          <span>Portfolio / 2026</span>
+          <span class="meta-line"></span>
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="line"><span class="word">Student.</span></span>
+
+          <span class="line"><span class="word"><em>Engineer.</em></span> <span class="word"></span></span>
+        </h1>
+
+        <p class="hero-sub">
+          I&rsquo;m a student learning to build devices that work.
+          I prototype quickly, ship small, and care a lot about the details people
+          don&rsquo;t notice until they&rsquo;re big problems. Active high school student looking for opportunities.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">
+            See my work
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <div class="hero-scroll" aria-hidden="true">
+          <span>Scroll</span>
+          <span class="scroll-line"></span>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="section-head">
+          <span class="section-num">01 / About</span>
+          <h2 class="section-title">A short <em>introduction</em>.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-body">
+            <p class="lead">
+              Yes, I&rsquo;m a high school student. exploring aspects of engineering while battling schoolwork,
+              coursework, and a stubborn curiosity for how things actually work under
+              the screen.
+            </p>
+            <p>
+              I started loving engineering at around 6 years old, when I got my hands on the first computer I've seen and the first real
+              though I had was; "How does this work?" That's basically my life to this day.
+
+            </p>
+            <p>
+              My dream has been to pursue this dream career of mine, and I am working hard to make it happen. 
+              Sometimes I have to focus on schoolwork, but in the litte gaps, I often find time for projects.
+              I, as many of my peers, worry about the future, whether its college or life after that, but one quote that's helped me: <br>
+              <span style="font-family: var(--font-mono); color: var(--text);"><br>"We are what we repeatedly do. Excellence, then, is not an act, but a habit"</span>.
+              
+            </p>
+          </div>
+
+          <div class="about-facts">
+            <div class="fact">
+              <span class="fact-key">Based in</span>
+              <span class="fact-val">United States - New York</span>
+            </div>
+            <div class="fact">
+              <span class="fact-key">Status</span>
+              <span class="fact-val">Student &middot; looking for opportunities</span>
+            </div>
+            <div class="fact">
+              <span class="fact-key">Focus</span>
+              <span class="fact-val">Web, systems, dev tooling</span>
+            </div>
+            <div class="fact">
+              <span class="fact-key">Currently</span>
+              <span class="fact-val">Learning, creating</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS (horizontal scroll) -->
+      <section id="projects" class="projects">
+        <div class="projects-pin">
+          <div class="projects-intro">
+            <span class="section-num">02 / Work</span>
+            <h2 class="section-title">Things I&rsquo;ve <em>built</em>.</h2>
+            <span class="projects-sub">
+              Scroll <span class="arrow-mark">&rarr;</span>
+            </span>
+          </div>
+
+          <div class="projects-track">
+            <article class="project-card">
+              <span class="project-index">01 &mdash; Web</span>
+              <h3 class="project-title">andychen.tech</h3>
+              <p class="project-desc">
+                This site. A mimimal portfolio to document my projects and progress, built from
+                scratch on plain HTML, CSS, and JS so it deploys straight to
+                GitHub Pages. Ran via Squarespace. Home hosting coming soon.
+              </p>
+              <ul class="project-tags">
+                <li>HTML</li><li>CSS</li><li>GSAP</li><li>Lenis</li>
+              </ul>
+              <a class="project-link" href="https://github.com/ancyzn/ancyzn.github.io" target="_blank" rel="noreferrer">
+                View source &rarr;
+              </a>
+            </article>
+
+            <article class="project-card">
+              <span class="project-index">02 &mdash; Engineering</span>
+              <h3 class="project-title">Prototyping</h3>
+              <p class="project-desc">
+                I've been working with microcontrollers, including the ESP32, Raspberri Pi, and Arduinos to create useful projects while learning.
+                <span style="font-family: var(--font-mono);"></span>
+              </p>
+              <ul class="project-tags">
+                <li>C++</li><li>React</li><li>Node</li>
+              </ul>
+              <a class="project-link muted" href="#">More Details Coming soon</a>
+            </article>
+
+            <article class="project-card">
+              <span class="project-index">03 &mdash; Hardware</span>
+              <h3 class="project-title">My Computer</h3>
+              <p class="project-desc">
+                I've built a desktop computer with zero knowledge a few years ago after realizing my passion for computers and technology. <br>
+                Specs include: 
+                <ul>
+                  <li>CPU: Intel Core i7-12700KF</li>
+                  <li>GPU: NVIDIA GeForce RTX 3080</li>
+                  <li>RAM: 64GB DDR4</li>
+                  <li>Storage: 2x 2TB SSD</li>
+                  <li>Power Supply: 1000W HX100i Platinum</li>
+                </ul>
+               
+              </p>
+              <ul class="project-tags">
+                <li>Hands-On Work</li><li>Past Projects</li>
+              </ul>
+              <a class="project-link muted" href="#">More Details Coming soon</a>
+            </article>
+
+            <article class="project-card">
+              <span class="project-index">04 &mdash; Learning</span>
+              <h3 class="project-title">Engineering</h3>
+              <p class="project-desc">
+                After all these years, I am still deciding on different aspects of engineering. One one side, I love both the software and hardware layers of
+                engineering, but those tend to be quite polar in the career paths. Computer Engineering looks quite appealing, and I am working on developing Electrical Engineering skill sets too.
+
+              </p>
+              <ul class="project-tags">
+                <li>Future</li><li>Career</li>
+              </ul>
+              <a class="project-link muted" href="#">Coming soon</a>
+            </article>
+
+            <article class="project-card project-card--end">
+              <span class="project-index">&mdash;</span>
+              <h3 class="project-title">More on the way.</h3>
+              <p class="project-desc">
+                I&rsquo;m always building. Check back, or follow along on GitHub
+                &mdash; new work usually shows up there first.
+              </p>
+              <a class="project-link" href="https://github.com/ancyzn" target="_blank" rel="noreferrer">
+                My GitHub &rarr;
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOALS -->
+      <section id="goals" class="goals">
+        <div class="section-head">
+          <span class="section-num">03 / Goals</span>
+          <h2 class="section-title">What I&rsquo;m <em>working toward</em>.</h2>
+        </div>
+
+        <div class="goals-grid">
+          <div class="goal-card">
+            <span class="goal-tag">Now</span>
+            <p>
+              Sharpen my skills and build my portfolio &mdash;
+              Finding volunteering opportunities to gain experience and make an impact.
+            </p>
+          </div>
+          <div class="goal-card">
+            <span class="goal-tag">Next</span>
+            <p>
+              Land a software engineering internship where I can learn from people
+              who care about craft, and contribute to something real users touch.
+            </p>
+          </div>
+          <div class="goal-card">
+            <span class="goal-tag">Later</span>
+            <p>
+              Graduate, go to college, and Work on tools, infrastructure, or developer experience &mdash; the
+              kind of software that makes other software possible.
+            </p>
+          </div>
+          <div class="goal-card goal-card--list">
+            <span class="goal-tag">Curious about</span>
+            <ul>
+              <li>Compilers</li>
+              <li>Web performance</li>
+              <li>Distributed systems</li>
+              <li>Developer tooling</li>
+              <li>AI infrastructure</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="skills">
+        <div class="section-head">
+          <span class="section-num">04 / Stack</span>
+          <h2 class="section-title">Tools I <em>use.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <span class="skill-group-key">Languages</span>
+            <ul>
+              <li>Python</li>
+              <li>TypeScript</li>
+              <li>JavaScript</li>
+              <li>Java</li>
+              <li>C++</li>
+
+            </ul>
+          </div>
+          <div class="skill-group">
+            <span class="skill-group-key">Web</span>
+            <ul>
+              <li>React</li>
+              <li>Next.js</li>
+              <li>HTML &amp; CSS</li>
+              <li>Tailwind</li>
+              <li>Node.js</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <span class="skill-group-key">Tools</span>
+            <ul>
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>VS Code</li>
+              <li>Figma</li>
+              <li>Cursor</li>
+              <li>Linux</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <span class="skill-group-key">Learning</span>
+            <ul>
+              <li>Javascript</li>
+              <li>Linux</li>
+              <li>System design</li>
+              <li>Databases</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="section-head">
+          <span class="section-num">05 / Contact</span>
+          <h2 class="section-title">Want to <em>talk?</em></h2>
+        </div>
+
+        <a class="contact-email" href="mailto:contact@andychen.tech">
+          <span class="contact-email-text">contact@andychen.tech</span>
+          <span class="contact-arrow" aria-hidden="true">&#8599;</span>
+        </a>
+
+        <p class="contact-sub">
+          The fastest way to reach me is email. I&rsquo;m especially interested in
+          internships, or hearing from anyone
+          building something they think is interesting. <br>Replies usually take 24-48 hours.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:contact@andychen.tech">
+            <span class="link-key">Email</span>
+            <span class="link-val">contact@andychen.tech</span>
+          </a>
+          <a href="https://github.com/ancyzn" target="_blank" rel="noreferrer">
+            <span class="link-key">GitHub</span>
+            <span class="link-val">@ancyzn &rarr;</span>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+            <span class="link-key">LinkedIn</span>
+            <span class="link-val">Coming Soon</span>
+          </a>
+          <a href="https://andychen.tech" target="_blank" rel="noreferrer">
+            <span class="link-key">Web</span>
+            <span class="link-val">andychen.tech &rarr;</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <span>&copy; <span id="year">2026</span> Andy Chen</span>
+      <span>Built with HTML, CSS, GSAP &amp; Lenis <br>Made with love</span>
+      <a class="back-top" href="#home">Back to top &uarr;</a>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
